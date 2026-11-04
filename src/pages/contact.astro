@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const contactEmail = import.meta.env.PUBLIC_CONTACT_EMAIL;
+---
+
+<BaseLayout
+  title="Contact MotorByte | Editorial Enquiries"
+  description="Contact MotorByte with story ideas, corrections, feedback, or editorial enquiries."
+>
+  <article class="mx-auto max-w-3xl px-5 py-16 sm:px-8 sm:py-20">
+    <p class="text-xs font-bold uppercase tracking-[0.2em] text-orange-400">Get in touch</p>
+    <h1 class="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl">Contact MotorByte</h1>
+    <p class="mt-6 leading-7 text-slate-300">Have a story idea, a correction, feedback, or an editorial enquiry? We welcome thoughtful messages from readers.</p>
+    {contactEmail ? (
+      <p class="mt-6">
+        <a class="font-semibold text-orange-300 underline underline-offset-4" href={`mailto:${contactEmail}`}>{contactEmail}</a>
+      </p>
+    ) : (
+      <p class="mt-6 rounded-xl border border-line bg-panel p-5 text-slate-400">
+        Editorial contact details will be published here. Set <code>PUBLIC_CONTACT_EMAIL</code> in your deployment environment before launch.
+      </p>
+    )}
+  </article>
+</BaseLayout>

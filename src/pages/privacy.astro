@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const adsenseConfigured = Boolean(import.meta.env.PUBLIC_ADSENSE_CLIENT);
+---
+
+<BaseLayout
+  title="Privacy Policy | MotorByte"
+  description="Read how MotorByte handles website data, cookies, analytics, and advertising."
+>
+  <article class="mx-auto max-w-3xl px-5 py-16 sm:px-8 sm:py-20">
+    <p class="text-xs font-bold uppercase tracking-[0.2em] text-orange-400">Legal information</p>
+    <h1 class="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl">Privacy policy</h1>
+    <p class="mt-4 text-sm text-slate-500">Last updated: November 4, 2026</p>
+    <div class="prose-post mt-8">
+      <p>This policy describes how MotorByte handles information when you visit this website. Review and adapt it for your business, hosting provider, analytics tools, audience locations, and applicable privacy laws before launch. It is general information, not legal advice.</p>
+      <h2>Information and server logs</h2>
+      <p>Like most websites, the hosting provider may process technical information in server logs, such as IP address, browser details, requested pages, and request time, to deliver and protect the site. Check your hosting provider’s documentation for its retention and privacy practices.</p>
+      <h2>Cookies and advertising</h2>
+      {adsenseConfigured ? (
+        <p>This site has an advertising publisher ID configured and may display Google AdSense ads. Google and its partners may use cookies or similar technologies to serve, measure, and personalize ads as described in Google’s advertising and privacy disclosures. Availability of personalized advertising depends on user location, consent choices, account settings, and applicable law.</p>
+      ) : (
+        <p>Advertising is not currently configured on this site. If advertising, analytics, or other third-party services are added, this policy and any required consent experience must be updated before they are enabled.</p>
+      )}
+      <p>Visitors can learn about Google’s advertising controls through Google’s ad settings and privacy disclosures. Where required, the publisher must use a Google-certified consent management platform and obtain the appropriate consent before using relevant advertising technologies. Configure this for the regions you serve before enabling ads.</p>
+      <h2>External services and links</h2>
+      <p>Pages may link to third-party websites. Their privacy practices are governed by their own policies. Update this notice if you add analytics, embedded media, affiliate services, mailing lists, or other processors.</p>
+      <h2>Your choices and contact</h2>
+      <p>Privacy rights and choices depend on where you live. For privacy questions or requests, contact MotorByte using the details on the <a href="/contact/">contact page</a>. Add a valid contact address and any locally required disclosures before publication.</p>
+    </div>
+  </article>
+</BaseLayout>
