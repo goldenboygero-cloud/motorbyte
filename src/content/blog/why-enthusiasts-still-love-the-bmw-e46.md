@@ -4,6 +4,7 @@ description: "The E46 generation of the BMW 3 Series remains a favorite for its 
 pubDate: 2026-11-04
 category: "Car Culture"
 author: "MotorByte"
+heroImage: "/images/e46Enthusiasts.jpg"
 tags:
   - BMW
   - E46
