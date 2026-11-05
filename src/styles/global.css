@@ -1,10 +1,11 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
-  --color-ink: #0b0e11;
-  --color-panel: #12171c;
-  --color-line: #27313a;
-  --color-accent: #f97316;
+  --color-ink: #0F172A;
+  --color-panel: #1E293B;
+  --color-line: #1E293B;
+  --color-accent: #06B6D4;
 }
 
 :root {
@@ -20,25 +21,26 @@ html {
 
 body {
   margin: 0;
-  background: #0b0e11;
-  color: #e7edf2;
+  background: #0F172A;
+  color: #F8FAFC;
 }
 
 ::selection {
-  background: #f97316;
-  color: #0b0e11;
+  background: #06B6D4;
+  color: #0F172A;
 }
 
 .prose-post {
-  color: #c7d0d8;
+  color: #94A3B8;
   font-size: 1.025rem;
   line-height: 1.85;
 }
 
+.prose-post h1,
 .prose-post h2,
 .prose-post h3 {
   margin: 2.5rem 0 0.9rem;
-  color: #f4f7f9;
+  color: #F1F5F9;
   font-weight: 700;
   line-height: 1.3;
   letter-spacing: -0.025em;
@@ -46,6 +48,8 @@ body {
 
 .prose-post h2 {
   font-size: clamp(1.55rem, 3vw, 2rem);
+  border-left: 2px solid #06B6D4;
+  padding-left: 1rem;
 }
 
 .prose-post h3 {
@@ -77,40 +81,49 @@ body {
 }
 
 .prose-post a {
-  color: #fb923c;
+  color: #06B6D4;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 .prose-post strong {
-  color: #f4f7f9;
+  color: #F1F5F9;
 }
 
 .prose-post blockquote {
   margin: 1.5rem 0;
-  border-left: 3px solid #f97316;
+  border-left: 3px solid #06B6D4;
   padding: 0.8rem 1rem;
-  background: #12171c;
-  color: #d7dee4;
+  background: #1E293B;
+  color: #CBD5E1;
 }
 
 .prose-post code {
-  border: 1px solid #27313a;
+  border: 1px solid #1E293B;
   border-radius: 0.35rem;
-  background: #12171c;
+  background: #1E293B;
   padding: 0.12rem 0.35rem;
-  color: #fdba74;
+  color: #67E8F9;
   font-size: 0.9em;
+}
+
+.prose-post pre {
+  overflow-x: auto;
+  border: 1px solid #1E293B;
+  border-radius: 0.75rem;
+  background: #1E293B;
+  padding: 1rem 1.25rem;
+  color: #67E8F9;
 }
 
 .prose-post hr {
   margin: 2rem 0;
   border: 0;
-  border-top: 1px solid #27313a;
+  border-top: 1px solid #1E293B;
 }
 
 :focus-visible {
-  outline: 2px solid #fb923c;
+  outline: 2px solid #06B6D4;
   outline-offset: 3px;
 }
 
