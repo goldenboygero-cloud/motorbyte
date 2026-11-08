@@ -81,22 +81,16 @@ const structuredDataJson = structuredData
           </a>
 
           <div class="nav-links" aria-label="Primary navigation">
-            <a class="is-active" href="/">Home</a>
-            <a href="#">News</a>
-            <a href="#">Reviews</a>
-            <a href="#">Opinion</a>
-            <a href="#">Comparisons</a>
-            <a href="#">Car Culture</a>
-            <a href="#">About</a>
-          </div>
-
-          <div class="nav-actions" aria-label="Utility navigation">
-            <button class="icon-button" aria-label="Search">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 3a7.5 7.5 0 0 1 5.96 12.56l4.16 4.16 1.41-1.41-4.16-4.16A7.5 7.5 0 1 1 10.5 3Zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11Z"/></svg>
-            </button>
-            <button class="icon-button" aria-label="Toggle theme">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4a8.5 8.5 0 1 0 11.5 11.5Z"/></svg>
-            </button>
+            <a
+              class:list={Astro.url.pathname === '/' ? ['is-active'] : []}
+              href="/"
+              aria-current={Astro.url.pathname === '/' ? 'page' : undefined}
+            >Home</a>
+            <a
+              class:list={Astro.url.pathname === '/about/' ? ['is-active'] : []}
+              href="/about/"
+              aria-current={Astro.url.pathname === '/about/' ? 'page' : undefined}
+            >About</a>
           </div>
         </nav>
       </header>
@@ -110,12 +104,10 @@ const structuredDataJson = structuredData
           <a href="/" class="flex w-fit items-center" aria-label="MotorByte home">
             <img src="/images/MotorByte%20Logo.png" alt="MotorByte Automotive Media" class="h-14 w-14 object-contain" />
           </a>
-          <p>Stories, opinions, and news from the world of cars.</p>
+          <p>Stories for people who love cars.</p>
           <nav class="flex flex-wrap gap-x-5 gap-y-2" aria-label="Footer navigation">
-            <a class="transition hover:text-cyan-300" href="/contact/">Contact</a>
-            <a class="transition hover:text-cyan-300" href="/privacy/">Privacy</a>
-            <a class="transition hover:text-cyan-300" href="/editorial-policy/">Editorial policy</a>
-            <a class="transition hover:text-cyan-300" href="/rss.xml">RSS</a>
+            <a class="transition hover:text-cyan-300" href="/">Home</a>
+            <a class="transition hover:text-cyan-300" href="/about/">About</a>
           </nav>
         </div>
       </footer>

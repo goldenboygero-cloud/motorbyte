@@ -417,6 +417,7 @@ svg {
   text-transform: uppercase;
 }
 
+.story-body h2,
 .story-body h3 {
   margin: 12px 0 0;
   color: #f8fafb;
@@ -472,8 +473,7 @@ svg {
   min-width: 0;
 }
 
-.popular-panel,
-.newsletter-box {
+.popular-panel {
   background: rgba(11, 15, 21, 0.96);
   border: 1px solid var(--line);
   border-radius: 16px;
@@ -484,8 +484,7 @@ svg {
   padding: 16px 18px 10px;
 }
 
-.popular-panel h3,
-.newsletter-box h3 {
+.popular-panel h3 {
   margin: 0;
   color: #f5f7fa;
   font-size: clamp(1.4rem, 2vw, 2.2rem);
@@ -546,65 +545,6 @@ svg {
   margin-top: 6px;
   color: rgba(255, 255, 255, 0.62);
   font-size: 0.7rem;
-}
-
-.newsletter-box {
-  margin-top: 18px;
-  padding: 20px 20px 18px;
-}
-
-.newsletter-icon {
-  width: 38px;
-  height: 38px;
-  display: grid;
-  place-items: center;
-  margin-bottom: 12px;
-  border-radius: 10px;
-  background: rgba(245, 56, 61, 0.12);
-  color: #ff4d54;
-  font-size: 1.5rem;
-  font-weight: 800;
-}
-
-.newsletter-box p {
-  margin: 12px 0 0;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.55;
-}
-
-.newsletter-form {
-  display: flex;
-  gap: 8px;
-  margin-top: 18px;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  padding: 6px 6px 6px 12px;
-}
-
-.newsletter-form input {
-  flex: 1;
-  min-width: 0;
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 0.96rem;
-  padding: 10px 0;
-}
-
-.newsletter-form input::placeholder {
-  color: rgba(255, 255, 255, 0.45);
-}
-
-.newsletter-form button {
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(180deg, #f74047 0%, #d7242d 100%);
-  color: white;
-  font-weight: 700;
-  padding: 10px 16px;
-  cursor: pointer;
 }
 
 .prose-post {
