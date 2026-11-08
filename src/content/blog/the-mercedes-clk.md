@@ -4,6 +4,7 @@ description: "The original Mercedes-Benz CLK brought together elegant coupe styl
 pubDate: 2026-11-08
 category: "Opinion"
 author: "MotorByte"
+heroImage: "/images/CLKW208.jpg"
 tags:
   - Mercedes-Benz
   - CLK
