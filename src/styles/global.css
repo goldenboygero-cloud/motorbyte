@@ -185,6 +185,10 @@ svg {
   padding: 0 0 38px;
 }
 
+.site-footer {
+  background-color: #050608;
+}
+
 .hero-panel {
   position: relative;
   overflow: hidden;
