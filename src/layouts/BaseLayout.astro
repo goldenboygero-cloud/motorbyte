@@ -73,14 +73,30 @@ const structuredDataJson = structuredData
   </head>
   <body class="min-h-screen antialiased">
     <div class="flex min-h-screen flex-col">
-      <header class="border-b border-line bg-ink/95">
-        <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8" aria-label="Main navigation">
-          <a href="/" class="flex items-center" aria-label="MotorByte home">
-            <img src="/images/MotorByte%20Logo.png" alt="MotorByte Automotive Media" class="h-16 w-16 object-contain" />
+      <header class="site-header">
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="/" class="brand" aria-label="MotorByte home">
+            <img src="/images/MotorByte%20Logo.png" alt="MotorByte Automotive Media" class="brand-mark" />
+            <span class="brand-text">motorbyte<span>.net</span></span>
           </a>
-          <div class="flex items-center gap-6 text-sm text-slate-300">
-            <a class="transition hover:text-cyan-300" href="/#stories">Stories</a>
-            <a class="hidden transition hover:text-cyan-300 sm:inline" href="/about/">About</a>
+
+          <div class="nav-links" aria-label="Primary navigation">
+            <a class="is-active" href="/">Home</a>
+            <a href="#">News</a>
+            <a href="#">Reviews</a>
+            <a href="#">Opinion</a>
+            <a href="#">Comparisons</a>
+            <a href="#">Car Culture</a>
+            <a href="#">About</a>
+          </div>
+
+          <div class="nav-actions" aria-label="Utility navigation">
+            <button class="icon-button" aria-label="Search">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 3a7.5 7.5 0 0 1 5.96 12.56l4.16 4.16 1.41-1.41-4.16-4.16A7.5 7.5 0 1 1 10.5 3Zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11Z"/></svg>
+            </button>
+            <button class="icon-button" aria-label="Toggle theme">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4a8.5 8.5 0 1 0 11.5 11.5Z"/></svg>
+            </button>
           </div>
         </nav>
       </header>
