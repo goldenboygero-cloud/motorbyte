@@ -1,81 +1,14 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const featuredArticle = {
-  label: "EDITOR'S PICK",
-  title: 'The BMW M3 G80: A New Era of Performance',
-  description: 'More power, more tech, and a bold new design — is the G80 truly the best M car yet?',
-  date: 'Nov 2, 2025',
-  readTime: '8 min read',
-  image:
-    'https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1400&q=80',
-};
-
-const latestArticles = [
-  {
-    category: 'OPINION',
-    title: 'The BMW E46 M3: A Modern Classic',
-    date: 'Oct 28, 2025',
-    readTime: '6 min read',
-    image:
-      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    category: 'REVIEWS',
-    title: 'Mercedes-AMG GT: The Perfect Balance',
-    date: 'Oct 25, 2025',
-    readTime: '7 min read',
-    image:
-      'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    category: 'THOUGHTS',
-    title: 'Why Naturally Aspirated Engines Still Matter',
-    date: 'Oct 22, 2025',
-    readTime: '5 min read',
-    image:
-      'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    category: 'NEWS',
-    title: 'The Audi RS6 Avant: A Superstar in Disguise',
-    date: 'Oct 20, 2025',
-    readTime: '6 min read',
-    image:
-      'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=900&q=80',
-  },
-];
-
-const popularPosts = [
-  {
-    index: 1,
-    title: 'The BMW E46 M3: A Modern Classic',
-    readTime: '6 min read',
-    image:
-      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=80',
-  },
-  {
-    index: 2,
-    title: 'Mercedes-AMG GT: The Perfect Balance',
-    readTime: '7 min read',
-    image:
-      'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=500&q=80',
-  },
-  {
-    index: 3,
-    title: 'Why Naturally Aspirated Engines Still Matter',
-    readTime: '5 min read',
-    image:
-      'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=500&q=80',
-  },
-  {
-    index: 4,
-    title: 'The Audi RS6 Avant: A Superstar in Disguise',
-    readTime: '6 min read',
-    image:
-      'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=500&q=80',
-  },
-];
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const featuredPost = posts[0];
+const latestPosts = posts.slice(1);
+const publishedDate = (date: Date) =>
+  date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 ---
 
 <BaseLayout
@@ -83,96 +16,94 @@ const popularPosts = [
   description="Performance-driven stories, reviews, and car culture from the world of motorsport and modern performance cars."
 >
   <div class="page-shell">
-    <section class="hero-panel">
-      <div class="hero-content">
-        <div class="hero-copy">
-          <p class="eyebrow">{featuredArticle.label}</p>
-          <h1>{featuredArticle.title}</h1>
-          <p class="dek">{featuredArticle.description}</p>
+    {featuredPost && (
+      <section
+        class:list={['hero-panel', !featuredPost.data.heroImage && 'hero-panel-no-image']}
+        style={featuredPost.data.heroImage ? `--hero-image: url("${featuredPost.data.heroImage}")` : undefined}
+      >
+        <div class="hero-content">
+          <div class="hero-copy">
+            <p class="eyebrow">Editor's pick</p>
+            <h1>{featuredPost.data.title}</h1>
+            <p class="dek">{featuredPost.data.description}</p>
 
-          <div class="meta-row">
-            <span class="meta-item">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h2v2h6V2h2v2h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h3V2Zm13 8H4v10h16V10ZM4 8h16V6H4v2Z"/></svg>
-              {featuredArticle.date}
-            </span>
-            <span class="meta-item">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 11h4v2h-6V7h2v6Z"/></svg>
-              {featuredArticle.readTime}
-            </span>
+            <div class="meta-row">
+              <span class="meta-item">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h2v2h6V2h2v2h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h3V2Zm13 8H4v10h16V10ZM4 8h16V6H4v2Z"/></svg>
+                <time datetime={featuredPost.data.pubDate.toISOString()}>{publishedDate(featuredPost.data.pubDate)}</time>
+              </span>
+              <span class="meta-item">{featuredPost.data.author}</span>
+            </div>
+
+            <a href={`/blog/${featuredPost.id}/`} class="cta-button">
+              Read More <span aria-hidden="true">→</span>
+            </a>
           </div>
-
-          <a href="#" class="cta-button">Read More <span aria-hidden="true">→</span></a>
         </div>
-
-        <div class="hero-visual">
-          <img src={featuredArticle.image} alt="BMW M3 G80 on a wet mountain road" />
-        </div>
-      </div>
-
-      <div class="hero-controls" aria-label="Story navigation">
-        <button aria-label="Previous story">‹</button>
-        <button aria-label="Next story">›</button>
-      </div>
-    </section>
+      </section>
+    )}
 
     <section class="content-grid">
       <div class="cards-column">
         <div class="section-header">
           <h2>Latest Articles</h2>
-          <a href="#">View all articles <span aria-hidden="true">→</span></a>
         </div>
 
-        <div class="article-grid">
-          {latestArticles.map((article) => (
-            <article class="story-card">
-              <img src={article.image} alt={article.title} class="story-image" />
-              <div class="story-body">
-                <span class="story-tag">{article.category}</span>
-                <h3>{article.title}</h3>
-                <div class="story-meta">
-                  <span>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h2v2h6V2h2v2h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h3V2Zm13 8H4v10h16V10ZM4 8h16V6H4v2Z"/></svg>
-                    {article.date}
-                  </span>
-                  <span>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 11h4v2h-6V7h2v6Z"/></svg>
-                    {article.readTime}
-                  </span>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
+        {latestPosts.length > 0 ? (
+          <div class="article-grid">
+            {latestPosts.map((post) => (
+              <article class="story-card">
+                <a class="story-card-link" href={`/blog/${post.id}/`} aria-label={`Read ${post.data.title}`}>
+                  <div class="story-body">
+                    <span class="story-tag">{post.data.category}</span>
+                    <h3>{post.data.title}</h3>
+                    <p class="story-description">{post.data.description}</p>
+                    <div class="story-meta">
+                      <time datetime={post.data.pubDate.toISOString()}>{publishedDate(post.data.pubDate)}</time>
+                      <span>{post.data.author}</span>
+                    </div>
+                    <span class="story-read-more">Read article <span aria-hidden="true">→</span></span>
+                  </div>
+                </a>
+              </article>
+            ))}
+          </div>
+        ) : posts.length === 0 ? (
+          <p class="empty-stories">No stories yet. Check back soon for the latest from MotorByte.</p>
+        ) : (
+          <p class="empty-stories">You’re all caught up. Check back soon for more MotorByte stories.</p>
+        )}
       </div>
 
-      <aside class="sidebar">
-        <div class="popular-panel">
-          <h3>Popular Posts</h3>
-          <ol>
-            {popularPosts.map((post) => (
-              <li>
-                <span class="rank">{post.index}</span>
-                <img src={post.image} alt={post.title} />
-                <div>
-                  <h4>{post.title}</h4>
-                  <span>{post.readTime}</span>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
+      {posts.length > 0 && (
+        <aside class="sidebar">
+          <div class="popular-panel">
+            <h3>Explore Stories</h3>
+            <ol>
+              {posts.map((post, index) => (
+                <li>
+                  <span class="rank" aria-hidden="true">{index + 1}</span>
+                  <a href={`/blog/${post.id}/`} aria-label={`Read ${post.data.title}`}>
+                    <h4>{post.data.title}</h4>
+                    <span>{post.data.category} · {publishedDate(post.data.pubDate)}</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </div>
 
-        <div class="newsletter-box">
-          <div class="newsletter-icon" aria-hidden="true">✓</div>
-          <h3>Stay Updated</h3>
-          <p>Get the latest articles, news and insights delivered to your inbox.</p>
+          <div class="newsletter-box">
+            <div class="newsletter-icon" aria-hidden="true">✓</div>
+            <h3>Stay Updated</h3>
+            <p>Get the latest articles, news and insights delivered to your inbox.</p>
 
-          <label class="newsletter-form">
-            <input type="email" placeholder="Your email address..." aria-label="Email address" />
-            <button type="button">Subscribe</button>
-          </label>
-        </div>
-      </aside>
+            <label class="newsletter-form">
+              <input type="email" placeholder="Your email address..." aria-label="Email address" />
+              <button type="button">Subscribe</button>
+            </label>
+          </div>
+        </aside>
+      )}
     </section>
   </div>
 </BaseLayout>
