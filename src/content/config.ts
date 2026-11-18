@@ -12,7 +12,14 @@ export const blogCollection = defineCollection({
     author: z.string().default('MotorByte'),
     heroImage: z.string().optional(),
     heroImageAlt: z.string().optional(),
+    heroImageCredit: z.string().optional(),
+    heroImageSource: z.string().url().optional(),
+    heroImageLicense: z.string().optional(),
     tags: z.array(z.string()).default([]),
+    sources: z.array(z.object({
+      title: z.string(),
+      url: z.string().url(),
+    })).default([]),
   }),
 });
 
