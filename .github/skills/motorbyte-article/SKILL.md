@@ -19,7 +19,7 @@ Use this workflow for a new MotorByte blog post in `src/content/blog/`. The sele
 1. Use web search and open source pages, not search snippets alone.
 2. Verify important dates, specifications, production details, and historical claims against at least three reliable sources. Prefer manufacturer archives, museums, marque clubs with documented references, period publications, and established automotive publications.
 3. Resolve conflicting claims by finding stronger evidence or qualify the statement. Do not invent quotes or present uncertain recollections as fact.
-4. Record the sources in the Markdown frontmatter as `sources`, with a descriptive title and direct URL for each page. Link key claims in the article text where it reads naturally.
+4. Keep research sources in working notes only. Never put source lists, citations, or research-source links in the published Markdown or article body. Research must still support the factual accuracy of the article.
 
 ## 3. Find an image only when rights are clear
 
@@ -29,13 +29,13 @@ An image is optional. Do not delay a well-researched article just because an app
 2. Verify the exact image's creator, license, attribution requirements, and source page. A free-to-view image, search result, or general website policy is not proof of permission to republish.
 3. Download the original image file to `public/images/` with a unique, descriptive lowercase filename. Do not hotlink, crop, edit, or remove watermarks.
 4. Add `heroImage`, a descriptive `heroImageAlt`, and `heroImageCredit`, `heroImageSource`, and `heroImageLicense` to the frontmatter. Preserve any required attribution.
-5. If rights, attribution, or a valid downloadable image cannot be confirmed, omit all hero-image fields and report that no suitable licensed image was found.
+5. If rights, attribution, or a valid downloadable image cannot be confirmed, omit all hero-image fields and report that no suitable licensed image was found. Required image-credit or license links are permitted because they document image rights, not article research sources.
 
 ## 4. Write the post
 
 - Match the concise, enthusiast-friendly tone and section structure of the existing MotorByte posts. Aim for roughly 600–1,000 words unless the topic warrants a different length.
 - Use a unique lowercase kebab-case filename in `src/content/blog/`.
-- Include valid YAML frontmatter: `title`, `description`, `pubDate` (today's local date), `category`, `author: "MotorByte"`, `tags`, and `sources`. Use category `Opinion` unless the user specifies another existing category.
+- Include valid YAML frontmatter: `title`, `description`, `pubDate` (today's local date), `category`, `author: "MotorByte"`, and `tags`. Do not add a `sources` field. Use category `Opinion` unless the user specifies another existing category.
 - Keep claims specific and supported. Avoid filler, unsupported superlatives, copied phrasing, and false first-person ownership or driving claims.
 - Do not modify the site's layout or unrelated content for an individual article.
 
@@ -51,9 +51,6 @@ author: "MotorByte"
 tags:
   - Example marque
   - Classic cars
-sources:
-  - title: "Relevant historical source"
-    url: "https://example.com/article"
 ---
 ```
 
@@ -61,8 +58,8 @@ sources:
 
 1. Confirm any `heroImage` path resolves to a file under `public/images/`; confirm the image is a real image and its credit/source/license fields are present.
 2. Run `npm run build`. Do not push if the build fails.
-3. Check `git diff --check` and inspect the generated route under `dist/blog/<post-id>/index.html`. Confirm it contains the expected article title, source links, and image attribution when applicable.
+3. Check `git diff --check` and inspect the generated route under `dist/blog/<post-id>/index.html`. Confirm it contains the expected article title, no research-source list or links, and image attribution when applicable.
 4. Stage only the new Markdown post and its new image. Do not stage unrelated files.
 5. Commit with a descriptive message such as `Add <model> feature` and include the required Copilot co-author trailer.
 6. Push the commit to `origin main`. Never force-push. If the push is rejected or any command fails, stop and report the exact blocker rather than claiming success.
-7. Verify the resulting commit and clean worktree, then report the post URL, source/image status, build result, and commit hash.
+7. Verify the resulting commit and clean worktree, then report the post URL, image-credit status, build result, and commit hash.

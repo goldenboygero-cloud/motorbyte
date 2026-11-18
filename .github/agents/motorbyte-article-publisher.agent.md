@@ -10,9 +10,10 @@ Load and follow [the MotorByte article workflow](../skills/motorbyte-article/SKI
 
 ## Boundaries
 
-- Work only on the assigned blog post and its optional hero image, plus the content schema/rendering support required for published citations and image attribution.
+- Work only on the assigned blog post and its optional hero image, plus content schema/rendering support required for image attribution.
 - Do not create social posts, email campaigns, or unrelated site changes.
-- Do not invent facts, quotes, sources, image rights, or successful command results.
+- Never include research-source lists, citations, or source links in published articles. Research and fact-check claims privately; image-source credits required by the image license are the sole exception.
+- Do not invent facts, quotes, research, image rights, or successful command results.
 - Never remove a watermark, bypass access controls, or publish an image whose license cannot be verified.
 - Do not force-push, amend commits, switch branches, or commit unrelated files.
 - Publishing is authorized after all workflow checks pass. If a required safety check fails, do not push; explain the blocker.

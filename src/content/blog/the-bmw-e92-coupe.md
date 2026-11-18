@@ -15,15 +15,6 @@ tags:
   - 3 Series
   - M3
   - German engineering
-sources:
-  - title: "BMW: The fourth-generation M3 ends production after more than 40,000 coupes"
-    url: "https://www.press.bmwgroup.com/usa/pressDetail.html?title=approaching-the-checkered-flag-the-4th-generation-bmw-m3-ends-its-production-run-while-its-racing&outputChannelId=9&id=T0143476EN_US&left_menu_item=node__4266"
-  - title: "BMW M Registry: E90, E92 and E93 M3 model FAQ"
-    url: "https://www.bmwmregistry.com/model_faq.php?id=50"
-  - title: "Car and Driver: 2008 BMW M3 long-term road test"
-    url: "https://www.caranddriver.com/reviews/a16579304/2008-bmw-m3-long-term-road-test/"
-  - title: "Wikimedia Commons: BMW 335i (E92) coupe photo and license"
-    url: "https://commons.wikimedia.org/wiki/File:2006-2010_BMW_335i_(E92)_coupe_(2011-07-17)_01.jpg"
 ---
 
 The BMW E92 is easy to remember as the coupe in the fifth-generation 3 Series family. Its clean roofline and familiar proportions gave it a shape of its own, but the badge covered a broad range of cars, from everyday six-cylinder models to one of the most distinctive M3s BMW has built.

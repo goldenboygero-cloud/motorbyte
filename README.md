@@ -24,7 +24,7 @@ heroImageAlt: "A classic sports car on a mountain road"
 Write the story here using Markdown.
 ```
 
-`title`, `description`, and `pubDate` are required. `category` defaults to `Car News`, `author` defaults to `MotorByte`, and `heroImage`, `heroImageAlt`, `updatedDate`, and `tags` are optional. Write original, useful articles, use descriptive headings, cite sources for reporting, and provide accurate image alt text. Put local images in `public/images` and reference them with a path such as `/images/my-car.jpg`.
+`title`, `description`, and `pubDate` are required. `category` defaults to `Car News`, `author` defaults to `MotorByte`, and `heroImage`, `heroImageAlt`, `updatedDate`, and `tags` are optional. Write original, useful articles, use descriptive headings, and fact-check claims using reliable research without publishing source lists or citations in articles. Provide accurate image alt text and any required image-license attribution. Put local images in `public/images` and reference them with a path such as `/images/my-car.jpg`.
 
 ## Production setup
 
